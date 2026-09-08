@@ -1,5 +1,8 @@
+import os
+
 from flask import Flask, jsonify
 from flask_jwt_extended import JWTManager
+from werkzeug.security import generate_password_hash
 
 from config import Config
 from extensions import db
@@ -38,6 +41,23 @@ def create_app():
 
     with app.app_context():
         db.create_all()
+
+        admin_email = os.getenv("ADMIN_EMAIL")
+        admin_password = os.getenv("ADMIN_PASSWORD")
+
+        if admin_email and admin_password:
+            admin = User.query.filter_by(email=admin_email).first()
+
+            if not admin:
+                admin = User(
+                    username="admin",
+                    email=admin_email,
+                    password=generate_password_hash(admin_password),
+                    role="admin"
+                )
+
+                db.session.add(admin)
+                db.session.commit()
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(protected_bp)

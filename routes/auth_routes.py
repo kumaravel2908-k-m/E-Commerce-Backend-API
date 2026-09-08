@@ -31,7 +31,8 @@ def register():
     user = User(
         username=username,
         email=email,
-        password=hashed_password
+        password=hashed_password,
+        role="user"
     )
 
     db.session.add(user)
