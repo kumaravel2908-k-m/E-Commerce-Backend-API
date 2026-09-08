@@ -27,20 +27,3 @@ def admin_only():
         "role": user.role
     }), 200
 
-@admin_bp.route("/make-admin/<int:user_id>", methods=["PUT"])
-@jwt_required()
-def make_admin(user_id):
-
-    user = User.query.get(user_id)
-
-    if not user:
-        return jsonify({"message": "User not found"}), 404
-
-    user.role = "admin"
-    db.session.commit()
-
-    return jsonify({
-        "message": "User promoted to admin",
-        "user_id": user.id,
-        "role": user.role
-    }), 200

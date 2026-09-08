@@ -3,4 +3,5 @@
 __pycache__/
 *.pyc
 ecommerce.db
+instance/
 .idea/
