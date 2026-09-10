@@ -79,6 +79,28 @@ Response:
 
 ---
 
+## 📸 Project Showcase
+
+### 1. GitHub Repository
+
+![GitHub Repository](screenshots/01-github-repository.png)
+
+### 2. Authentication & Security
+
+![Authentication and Security](screenshots/02-authentication-security.png)
+
+### 3. Products & Search
+
+![Products and Search](screenshots/03-products-search.png)
+
+### 4. Cart & Orders
+
+![Cart and Orders](screenshots/04-cart-orders.png)
+
+### 5. Live Deployment
+
+![Live Deployment](screenshots/05-live-deployment.png)
+
 ## 🛠️ Technologies Used
 
 | Technology | Purpose |
